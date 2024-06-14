@@ -1,12 +1,17 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
+using RandomUser.Domain.Repositories;
+using RandomUser.Domain.Services;
 
 namespace RandomUser.API.Controllers {
 
     [ApiController]
     public class RandomUserController : Controller {
 
-        public RandomUserController() {
+        public readonly IGenerateUserService _generateUserService;
+
+        public RandomUserController(IGenerateUserService generateUserService) {
+            _generateUserService = generateUserService;
         }
 
         [HttpPost]
@@ -14,6 +19,7 @@ namespace RandomUser.API.Controllers {
         [Consumes("application/json")]
         public IActionResult GenerateUser() {
             try {
+                _generateUserService.GenerateUser();
             } catch (Exception e) {
                 return BadRequest(e.Message);
             }
