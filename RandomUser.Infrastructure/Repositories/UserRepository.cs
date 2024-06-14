@@ -1,12 +1,8 @@
 ﻿using Dapper;
 using RandomUser.Domain.Entities;
 using RandomUser.Domain.Repositories;
-using System;
-using System.Collections.Generic;
 using System.Data;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+
 
 namespace RandomUser.Infrastructure.Repositories {
     public class UserRepository : IUserRepository {

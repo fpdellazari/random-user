@@ -4,12 +4,6 @@ using RandomUser.Domain.DTOs;
 using RandomUser.Domain.Entities;
 using RandomUser.Domain.Repositories;
 using RandomUser.Domain.Services;
-using RandomUser.Infrastructure;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace RandomUser.Application.Services {
     public class GenerateUserService : IGenerateUserService {
@@ -28,8 +22,6 @@ namespace RandomUser.Application.Services {
             var randomUserResponseDTO = JsonConvert.DeserializeObject<RandomUserResponseDTO>(response);
             var user = _mapper.Map<User>(randomUserResponseDTO?.Results.ToList()[0]);
             _userRepository.Insert(user);
-            //if (resultsDTO?.Users?.ToList().Count > 0) {
-            //}
         }
 
     }

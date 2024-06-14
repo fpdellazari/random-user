@@ -1,6 +1,4 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Configuration;
-using RandomUser.Domain.Repositories;
 using RandomUser.Domain.Services;
 
 namespace RandomUser.API.Controllers {
