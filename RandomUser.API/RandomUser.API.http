@@ -1,0 +1,6 @@
+@RandomUser.API_HostAddress = http://localhost:5275
+
+GET {{RandomUser.API_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
