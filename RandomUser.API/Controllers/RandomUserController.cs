@@ -14,8 +14,6 @@ namespace RandomUser.API.Controllers {
         [Consumes("application/json")]
         public IActionResult GenerateUser() {
             try {
-                //var units = _unitApplication.GenerateUnits(request.PlayerId, 1);
-                //_unitApplication.Insert(units);
             } catch (Exception e) {
                 return BadRequest(e.Message);
             }
