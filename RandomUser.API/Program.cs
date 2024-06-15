@@ -12,12 +12,14 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddScoped<IDbConnection>(db => new NpgsqlConnection(
     builder.Configuration.GetConnectionString("DefaultConnection")));
 
-
-// Services and Repositories
-builder.Services.AddScoped<IGenerateUserService, GenerateUserService>();
-builder.Services.AddScoped<IUserRepository, UserRepository>();
-
 builder.Services.AddAutoMapper(typeof(MappingProfile));
+
+// Services 
+builder.Services.AddScoped<IGenerateUserService, GenerateUserService>();
+builder.Services.AddScoped<IUserService, UserService>();
+
+// Repositories
+builder.Services.AddScoped<IUserRepository, UserRepository>();
 
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
