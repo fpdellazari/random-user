@@ -15,9 +15,9 @@ namespace RandomUser.API.Controllers {
         [HttpPost]
         [Route("api/[controller]/generateuser")]
         [Consumes("application/json")]
-        public IActionResult GenerateUser() {
+        public async Task<IActionResult> GenerateUser() {
             try {
-                _generateUserService.GenerateUser();
+                await _generateUserService.GenerateUser();
             } catch (Exception e) {
                 return BadRequest(e.Message);
             }

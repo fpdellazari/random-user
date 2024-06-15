@@ -15,7 +15,7 @@ namespace RandomUser.Infrastructure.Repositories {
         public void Insert(User user) {
 
             string query = "";
-            query =   @"INSERT INTO randomUser (gender, 
+            query = @"INSERT INTO randomUser (gender, 
                                                 nameTitle, 
                                                 nameFirst, 
                                                 nameLast, 
@@ -42,8 +42,11 @@ namespace RandomUser.Infrastructure.Repositories {
                                         @cell, 
                                         @idName, 
                                         @idValue, 
-                                        @nat);";
-            _dbConnection.Execute(query, user);
+                                        @nat) RETURNING id;";
+            int userId = _dbConnection.Query(query, user).Single().id;
+            user.Location.UserId = userId;
+            user.Login.UserId = userId;
+            user.Picture.UserId = userId;
 
             query =   @"INSERT INTO userLocation (userId, 
                                                   city, 

@@ -5,7 +5,7 @@ VisualStudioVersion = 17.8.34330.188
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "RandomUser.API", "RandomUser.API", "{33D7AEAF-AE1A-4243-9257-1C73C8ACC96A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RandomUser.API", "RandomUser.API\RandomUser.API.csproj", "{F2750B88-2456-4A0D-B28B-B546F4F22D95}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RandomUser.API", "RandomUser.API\RandomUser.API.csproj", "{F2750B88-2456-4A0D-B28B-B546F4F22D95}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "RandomUser.Application", "RandomUser.Application", "{0986DE24-E20C-445C-B264-3EFDD602DAC6}"
 EndProject
@@ -13,11 +13,11 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "RandomUser.Domain", "Random
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "RandomUser.Infrastructure", "RandomUser.Infrastructure", "{F8C65EE5-CC59-4C17-AFB9-3E8D42613BFA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RandomUser.Application", "RandomUser.Application\RandomUser.Application.csproj", "{824F447E-5718-4359-8CFA-6CA1598414A2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RandomUser.Application", "RandomUser.Application\RandomUser.Application.csproj", "{824F447E-5718-4359-8CFA-6CA1598414A2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RandomUser.Domain", "RandomUser.Domain\RandomUser.Domain.csproj", "{E2F604D1-3BCC-40F0-A19E-3A3A9288B64A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RandomUser.Domain", "RandomUser.Domain\RandomUser.Domain.csproj", "{E2F604D1-3BCC-40F0-A19E-3A3A9288B64A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RandomUser.Infrastructure", "RandomUser.Infrastructure\RandomUser.Infrastructure.csproj", "{3762ED37-3633-45A3-80C7-3C0EF40B5FE8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RandomUser.Infrastructure", "RandomUser.Infrastructure\RandomUser.Infrastructure.csproj", "{3762ED37-3633-45A3-80C7-3C0EF40B5FE8}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

@@ -10,7 +10,7 @@ using RandomUser.Domain.Repositories;
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddScoped<IDbConnection>(db => new NpgsqlConnection(
-    builder.Configuration.GetConnectionString("ConnectionStrings:DefaultConnection")));
+    builder.Configuration.GetConnectionString("DefaultConnection")));
 
 
 // Services and Repositories
