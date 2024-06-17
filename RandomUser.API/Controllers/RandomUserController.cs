@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using RandomUser.Domain.Services;
 
 namespace RandomUser.API.Controllers {
@@ -16,6 +17,7 @@ namespace RandomUser.API.Controllers {
 
         [HttpGet]
         [Route("api/[controller]/get")]
+        [Authorize]
         public ActionResult Get() {
             try {
                 var users = _userService.Get();
@@ -27,7 +29,7 @@ namespace RandomUser.API.Controllers {
 
         [HttpPost]
         [Route("api/[controller]/generateuser")]
-        [Consumes("application/json")]
+        [Authorize]
         public async Task<IActionResult> GenerateUser() {
             try {
                 await _generateUserService.GenerateUser();
