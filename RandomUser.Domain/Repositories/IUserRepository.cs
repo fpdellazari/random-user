@@ -9,6 +9,8 @@ namespace RandomUser.Domain.Repositories {
     public interface IUserRepository {
 
         IEnumerable<User> Get();
+        User Get(int id);
         void Insert(User user);
+        void Update(User user);
     }
 }

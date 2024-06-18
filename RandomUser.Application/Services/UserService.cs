@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using RandomUser.Domain.DTOs;
+using RandomUser.Domain.Entities;
 using RandomUser.Domain.Repositories;
 using RandomUser.Domain.Services;
 using System;
@@ -19,10 +20,24 @@ namespace RandomUser.Application.Services {
             _mapper = mapper;            
         }
 
-        public IEnumerable<UserDTO> Get() {
+        public IEnumerable<UserDTO> GetUserDTO() {
             var users = _userRepository.Get();
             var usersDTO = _mapper.Map<List<UserDTO>>(users);
             return usersDTO;
+        }
+
+        public IEnumerable<User> Get() {
+            var users = _userRepository.Get();
+            return users;
+        }
+
+        public User Get(int id) {
+            var user = _userRepository.Get(id);
+            return user;
+        }
+
+        public void Update(User user) {
+            _userRepository.Update(user);
         }
     }
 }

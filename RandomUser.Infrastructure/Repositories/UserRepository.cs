@@ -68,6 +68,65 @@ namespace RandomUser.Infrastructure.Repositories {
             return users;
         }
 
+        public User Get(int id) {
+
+            string query = @"    SELECT a.id,
+		                                a.gender, 
+		                                a.nameTitle, 
+		                                a.nameFirst, 
+		                                a.nameLast, 
+		                                a.email, 
+		                                a.dobDate, 
+		                                a.dobAge, 
+		                                a.registeredDate, 
+		                                a.registeredAge, 
+		                                a.phone, 
+		                                a.cell, 
+		                                a.idName, 
+		                                a.idValue, 
+		                                a.nat,
+		                                b.userId, 
+	  	                                b.city, 
+	  	                                b.state, 
+	  	                                b.country, 
+	  	                                b.postcode, 
+	  	                                b.streetNumber, 
+	  	                                b.streetName, 
+	  	                                b.coordinatesLatitude, 
+	  	                                b.coordinatesLongitude, 
+	  	                                b.timezoneOffset, 
+	  	                                b.timezoneDescription,
+		                                c.userId, 
+		                                c.uuid, 
+		                                c.username, 
+		                                c.password, 
+		                                c.salt, 
+		                                c.md5, 
+		                                c.sha1, 
+		                                c.sha256,
+		                                d.userId, 
+		                                d.large, 
+		                                d.medium, 
+		                                d.thumbnail
+	                                FROM randomUser a
+	                                LEFT JOIN userLocation b ON a.id = b.userId
+	                                LEFT JOIN userLogin c ON a.id = c.userId
+	                                LEFT JOIN userPicture d ON a.id = d.userId
+                                    WHERE a.id = @id;";
+
+            var user = _dbConnection.Query<User, UserLocation, UserLogin, UserPicture, User>(query,
+                map: (user, userLocation, userLogin, userPicture) => {
+                    user.Location = userLocation;
+                    user.Login = userLogin;
+                    user.Picture = userPicture;
+                    return user;
+                },
+                param: new { id },
+                splitOn: "userId, userId, userId").FirstOrDefault();
+
+            return user;
+        }
+
         public void Insert(User user) {
 
             string query = "";
@@ -155,6 +214,27 @@ namespace RandomUser.Infrastructure.Repositories {
                                             @medium, 
                                             @thumbnail); ";
             _dbConnection.Execute(query, user.Picture);
-        }            
+        }
+
+        public void Update(User user) {
+
+            string query = "";
+            query = @"UPDATE randomUser SET gender = @gender, 
+                                            nameTitle = @nameTitle, 
+                                            nameFirst = @nameFirst, 
+                                            nameLast = @nameLast, 
+                                            email = @email, 
+                                            dobDate = @dobDate, 
+                                            dobAge = @dobAge, 
+                                            registeredDate = @registeredDate, 
+                                            registeredAge = @registeredAge, 
+                                            phone = @phone, 
+                                            cell = @cell, 
+                                            idName = @idName, 
+                                            idValue = @idValue, 
+                                            nat = @nat 
+                                WHERE id = @id;";
+            _dbConnection.Execute(query, user);
+        }
     }
 }

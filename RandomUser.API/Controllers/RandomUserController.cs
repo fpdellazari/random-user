@@ -20,7 +20,7 @@ namespace RandomUser.API.Controllers {
         [Authorize]
         public ActionResult Get() {
             try {
-                var users = _userService.Get();
+                var users = _userService.GetUserDTO();
                 return Ok(users);
             } catch (Exception e) {
                 return BadRequest(e.Message);
